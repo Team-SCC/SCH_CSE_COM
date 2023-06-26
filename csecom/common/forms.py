@@ -48,3 +48,22 @@ class UserChangeForm(forms.ModelForm):
 
     def clean_password(self):
         return self.initial['password']
+
+class LoginForm(forms.Form):
+    student_id = forms.CharField(label="학번", max_length=10)
+    password = forms.CharField(label="비밀번호", widget=forms.PasswordInput)
+    
+    def clean(self):
+        student_id = self.cleaned_data.get('student_id')
+        password = self.cleaned_data.get('password')
+        
+        try:
+            user = User.objects.get(student_id=student_id)
+            
+            if user.check_password(password):
+                return self.cleaned_data
+            else:
+                self.add_error("password", forms.ValidationError("가 틀렸습니다."))
+                
+        except User.DoesNotExist:   
+            self.add_error("student_id", forms.ValidationError("이 등록되어있지 않습니다."))
