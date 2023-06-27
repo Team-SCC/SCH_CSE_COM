@@ -43,3 +43,6 @@ class LoginView(FormView):
             login(self.request, user)
             
         return super().form_valid(form)
+
+def qanda(request):
+    return render(request, 'qanda.html')
