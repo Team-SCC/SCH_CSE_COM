@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'locker.apps.LockerConfig',
     'common.apps.CommonConfig',
 ]
 
