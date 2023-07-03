@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
-class LockerConfig(AppConfig):
+class SiCheckerConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'locker'
+    name = 'si_checker'
