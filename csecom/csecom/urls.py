@@ -10,4 +10,5 @@ urlpatterns = [
     path('main/', views.main, name='main'),
     path('locker/', include('locker.urls')),
     path('common/', include('common.urls')),
+    path('si_checker/', include('si_checker.urls'))
 ]

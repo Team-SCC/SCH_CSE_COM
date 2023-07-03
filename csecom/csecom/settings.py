@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'locker.apps.LockerConfig',
     'common.apps.CommonConfig',
+    'locker.apps.LockerConfig',
+    'si_checker.apps.SiCheckerConfig',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'data.data_loader.student_id_loader'
             ],
         },
     },
