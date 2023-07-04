@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
 
 def locker_main(request):
-    return HttpResponse("locker 페이지입니다.")
+    return render(request, 'locker.html')

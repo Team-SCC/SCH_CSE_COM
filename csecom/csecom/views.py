@@ -8,3 +8,6 @@ def empty_page(request):
 
 def test_page(request):
     return render(request, 'test.html')
+
+def temp_qanda(request):
+    return render(request, 'qanda.html')
