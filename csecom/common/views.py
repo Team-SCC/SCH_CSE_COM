@@ -45,7 +45,7 @@ class LoginView(FormView):
             
         return super().form_valid(form)
 
-def Qanda(request):
+def QandaView(request):
     if request.method =='POST':
         form = QandaForm(request.POST)
         if form.is_valid():

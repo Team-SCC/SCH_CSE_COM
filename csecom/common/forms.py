@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from .models import User
-from django.forms import ModelForm
 from .models import Qanda #Qanda models가져오기
 
 class UserCreationForm(forms.ModelForm):
@@ -70,7 +69,7 @@ class LoginForm(forms.Form):
             self.add_error("student_id", forms.ValidationError("이 등록되어있지 않습니다."))
 
 #qanda의 form부분
-class QandaForm(ModelForm):
+class QandaForm(forms.ModelForm):
     class Meta:
         model = Qanda
         fields = ['name', 'title', 'contents', 'url', 'email']
