@@ -5,3 +5,9 @@ def main(request):
 
 def empty_page(request):
     return redirect('main')
+
+def test_page(request):
+    return render(request, 'test.html')
+
+def temp_qanda(request):
+    return render(request, 'qanda.html')

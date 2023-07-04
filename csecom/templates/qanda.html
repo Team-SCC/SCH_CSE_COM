@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Question and Answer</title>
-    <style type="text/css"> body{width:900px}</style>
-</head>
+{% load static %}
+{% include "header.html" %}
+{% block content %}
 <body>
     <h2>큐엔에이</h2> 
     <form action ="" method="post">
@@ -18,4 +14,4 @@
         <button type="submit" class="btn btn-primary">저장</button>
     </form>
 </body>
-</html>
+{% endblock %}
