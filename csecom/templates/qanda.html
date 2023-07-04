@@ -1,1 +1,21 @@
-<h1>무동균 Q and A APP</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Question and Answer</title>
+    <style type="text/css"> body{width:900px}</style>
+</head>
+<body>
+    <h2>큐엔에이</h2> 
+    <form action ="" method="post">
+        {% comment %}
+            {{ form.as_table }}
+            {{ form.as_p }}
+            {{ form.as_ul }}
+        {% endcomment %}
+        {{ form.as_p}}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">저장</button>
+    </form>
+</body>
+</html>
