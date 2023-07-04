@@ -52,4 +52,4 @@ def Qanda(request):
             form.save()
     else:
         form = QandaForm()
-    return render(request, 'qanda.html')
+    return render(request, 'qanda.html', {'form':form})
