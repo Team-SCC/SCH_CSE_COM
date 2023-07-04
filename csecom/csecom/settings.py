@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'common.apps.CommonConfig',
     'locker.apps.LockerConfig',
     'si_checker.apps.SiCheckerConfig',
+    'data',
 ]
 
 MIDDLEWARE = [
