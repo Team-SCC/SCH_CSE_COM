@@ -1,7 +1,10 @@
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, redirect, reverse
+from django.views.generic import FormView
+from django.urls import reverse_lazy
 
 from .forms import UserCreationForm
+from .forms import LoginForm
 
 def signup(request):
     if request.method == "POST":
@@ -21,3 +24,25 @@ def signup(request):
 
     return render(request, 'signup.html', {'form': form})
 
+def log_out(request):
+    logout(request)
+    
+    return redirect(reverse("main"))
+
+class LoginView(FormView):
+    template_name = "login.html"
+    form_class = LoginForm
+    success_url = reverse_lazy("main")
+    
+    def form_valid(self, form):
+        student_id = form.cleaned_data.get('student_id')
+        password = form.cleaned_data.get('password')
+        user = authenticate(self.request, student_id=student_id, password=password)
+        
+        if user is not None:
+            login(self.request, user)
+            
+        return super().form_valid(form)
+
+def qanda(request):
+    return render(request, 'qanda.html')
