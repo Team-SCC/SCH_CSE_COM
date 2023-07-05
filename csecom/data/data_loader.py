@@ -31,3 +31,20 @@ def student_id_loader(self):
     print("[init data loader] ", len(student_id_list), "student_id_list load complete")
     
     return {'student_id_list' : student_id_list}
+
+def locker_reserve_loader(self):
+    '''사물함 예약 정보 불러와서 콘텍스트 리스트 반환
+    '''
+    
+    relative_path = './data/locker_reserve_info.csv'
+    
+    locker_data = get_from_path(relative_path)
+    
+    locker_data_list = []
+    
+    for data in locker_data.values:
+        print("data", data)
+        for i in data:
+            print(i, type(i))
+        print()
+        
