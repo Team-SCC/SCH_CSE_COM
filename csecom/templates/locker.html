@@ -1,7 +1,108 @@
 {% load static %}
 {% include "header.html" %}
 {% block content %}
+<style>
+    .button {
+        width: 100px;
+        height: 50px;
+    }
+</style>
 <body>
-    <h1>사물함 페이지 입니다.</h1>
+    <table>
+        <tr>
+            <td><button id="button1" class="button">1번</button></td>
+            <td><button id="button6" class="button">6번</button></td>
+            <td><button id="button11" class="button">11번</button></td>
+            <td><button id="button16" class="button">16번</button></td>
+            <td><button id="button21" class="button">21번</button></td>
+            <td><button id="button26" class="button">26번</button></td>
+            <td><button id="butto31" class="button">31번</button></td>
+            <td><button id="button36" class="button">36번</button></td>
+            <td><button id="button41" class="button">41번</button></td>
+            <td><button id="button46" class="button">46번</button></td>
+        </tr>
+        <tr>
+            <td><button id="button2" class="button">2번</button></td>
+            <td><button id="button7" class="button">7번</button></td>
+            <td><button id="button12" class="button">12번</button></td>
+            <td><button id="button17" class="button">17번</button></td>
+            <td><button id="button22" class="button">22번</button></td>
+            <td><button id="button27" class="button">27번</button></td>
+            <td><button id="button32" class="button">32번</button></td>
+            <td><button id="button37" class="button">37번</button></td>
+            <td><button id="button42" class="button">42번</button></td>
+            <td><button id="button47" class="button">47번</button></td>
+        </tr>
+        <tr>
+            <td><button id="button3" class="button">3번</button></td>
+            <td><button id="button8" class="button">8번</button></td>
+            <td><button id="button13" class="button">13번</button></td>
+            <td><button id="button18" class="button">18번</button></td>
+            <td><button id="button23" class="button">23번</button></td>
+            <td><button id="button28" class="button">28번</button></td>
+            <td><button id="button33" class="button">33번</button></td>
+            <td><button id="button38" class="button">38번</button></td>
+            <td><button id="button43" class="button">43번</button></td>
+            <td><button id="button48" class="button">48번</button></td>
+        </tr>
+        <tr>
+            <td><button id="button4" class="button">4번</button></td>
+            <td><button id="button9" class="button">9번</button></td>
+            <td><button id="button14" class="button">14번</button></td>
+            <td><button id="button19" class="button">19번</button></td>
+            <td><button id="button24" class="button">24번</button></td>
+            <td><button id="button29" class="button">29번</button></td>
+            <td><button id="button34" class="button">34번</button></td>
+            <td><button id="button39" class="button">39번</button></td>
+            <td><button id="button44" class="button">44번</button></td>
+            <td><button id="button49" class="button">49번</button></td>
+        </tr>
+        <tr>
+            <td><button id="button5" class="button">5번</button></td>
+            <td><button id="button10" class="button">10번</button></td>
+            <td><button id="button15" class="button">15번</button></td>
+            <td><button id="button20" class="button">20번</button></td>
+            <td><button id="button25" class="button">25번</button></td>
+            <td><button id="button30" class="button">30번</button></td>
+            <td><button id="button35" class="button">35번</button></td>
+            <td><button id="button40" class="button">40번</button></td>
+            <td><button id="button45" class="button">45번</button></td>
+            <td><button id="button50" class="button">50번</button></td>
+        </tr>
+    </table>
+    <br>
+    <input type="text" id="textBox" readonly>
+    <br>
+    <button id="submitButton">예약</button>
+
+    <script>
+        $(document).ready(function() {
+            // 버튼 클릭 시 텍스트 표시
+            $('.button').click(function() {
+                var buttonText = $(this).text();
+                $('#textBox').val(buttonText);
+            });
+
+            // 예약 버튼 클릭 시 폼 전송
+            $('#submitButton').click(function() {
+                var textBoxValue = $('#textBox').val();
+                // 폼 전송 로직 추가
+            });
+
+            var condition = true; // 예시로 true로 설정하였습니다. 실제로는 원하는 조건을 설정하시면 됩니다.
+            if (condition) {
+                // 버튼 비활성화 및 텍스트 변경
+                var buttons = document.getElementsByClassName("button");
+                for (var i = 0; i < buttons.length; i++) {
+                    var button = buttons[i];
+                    button.disabled = true; // 버튼 비활성화
+                    button.textContent = "사용중"; // 텍스트 변경
+                }
+                buttons[0].disabled = false;
+                buttons[0].textContent = "1번";
+            }
+        });
+    </script>
 </body>
+
 {% endblock %}
