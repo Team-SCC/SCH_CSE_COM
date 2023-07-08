@@ -53,3 +53,7 @@ def QandaView(request):
     else:
         form = QandaForm()
     return render(request, 'qanda.html', {'form':form})
+
+def QandalistView(request):
+    articleList = QandaForm.objects.all()
+    return render(request, 'list.html', {'articleList':articleList})

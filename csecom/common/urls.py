@@ -9,4 +9,5 @@ urlpatterns = [
     path('logout/', views.log_out, name='logout'),
     path('signup/', views.signup, name='signup'),
     path('qanda/', views.QandaView, name='qanda'),
+    path('qandalist/', views.QandalistView, name='qandalist'),
 ]
