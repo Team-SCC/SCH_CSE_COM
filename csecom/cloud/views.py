@@ -48,7 +48,7 @@ def content_create(request):
 
         return redirect('cloud:cloud_main')
 
-    return render(request, 'cloud_main.html')
+    return render(request, 'create.html')
 
 # localhost:port/cloud/download
 def file_download(request):
