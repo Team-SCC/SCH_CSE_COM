@@ -1,12 +1,5 @@
 from django.db import models
-from django.conf import settings
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
-
-'''
-student_id: 학번
-name: 이름
-password: 비밀번호
-'''
 
 class UserManager(BaseUserManager):
     def create_user(self, student_id, name, password=None):
