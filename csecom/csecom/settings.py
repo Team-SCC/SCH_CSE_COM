@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'locker.apps.LockerConfig',
     'si_checker.apps.SiCheckerConfig',
     'data',
+    'qanda.apps.QandaConfig',
 ]
 
 MIDDLEWARE = [

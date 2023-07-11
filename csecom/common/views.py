@@ -5,7 +5,6 @@ from django.urls import reverse_lazy
 
 from .forms import UserCreationForm
 from .forms import LoginForm
-from .forms import QandaForm
 
 def signup(request):
     if request.method == "POST":
@@ -44,16 +43,3 @@ class LoginView(FormView):
             login(self.request, user)
             
         return super().form_valid(form)
-
-def QandaView(request):
-    if request.method =='POST':
-        form = QandaForm(request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-        form = QandaForm()
-    return render(request, 'qanda.html', {'form':form})
-
-def QandalistView(request):
-    articleList = QandaForm.objects.all()
-    return render(request, 'list.html', {'articleList':articleList})
