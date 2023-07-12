@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'si_checker.apps.SiCheckerConfig',
     'cloud.apps.CloudConfig',
     'data',
+    'qanda.apps.QandaConfig',
 ]
 
 MIDDLEWARE = [
