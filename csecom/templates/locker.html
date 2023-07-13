@@ -271,21 +271,27 @@
         </tr>
     </table>
     <br>
-    <input type="text" id="textBox" readonly>
-    <br>
-    <button id="submitButton">예약</button>
+    <form method="post" class="post-form">
+        {% csrf_token %}
+        {% include "form_errors.html" %}
+        <div class="form-group">
+            <label for="number">신청할 사물함 번호</label>
+            <input type="text" id="number" readonly name="number" value="{{ form.number.value|default_if_none:'' }}">
+        </div>
+        <button type="submit" class="btn btn-primary">사용 신청하기</button>
+    </form>
 
     <script>
         $(document).ready(function() {
             // 버튼 클릭 시 텍스트 표시
             $('.button').click(function() {
                 var buttonText = $(this).text();
-                $('#textBox').val(buttonText);
+                $('#number').val(buttonText);
             });
 
             // 예약 버튼 클릭 시 폼 전송
             $('#submitButton').click(function() {
-                var textBoxValue = $('#textBox').val().replace('번', '');
+                var numberValue = $('#number').val().replace('번', '');
                 // 폼 전송 로직 추가
             });
 

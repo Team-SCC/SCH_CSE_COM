@@ -27,6 +27,7 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_student = models.BooleanField(default=False)
+    locker_number = models.IntegerField(verbose_name='사물함', default=0)
 
     objects = UserManager()
 
@@ -49,3 +50,7 @@ class User(AbstractBaseUser):
     @property
     def is_check(self):
         return self.is_student
+
+    @property
+    def locker_used(self):
+        return self.locker_used
