@@ -3,10 +3,12 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.utils import timezone
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 import os
 
 from .models import Content
 
+@login_required(login_url='common:login')
 def cloud_main(request):
     '''클라우드 메인 화면 함수
     url: localhost:port/cloud/
@@ -57,6 +59,7 @@ def content_create(request):
 
     return render(request, 'create.html')
 
+@login_required(login_url='common:login')
 def file_download(request):
     '''파일 다운로드 함수
     url: localhost:port/cloud/download
