@@ -13,5 +13,5 @@ urlpatterns = [
     path('common/', include('common.urls')),
     path('si_checker/', include('si_checker.urls')),
     path('cloud/', include('cloud.urls')),
-    path('qanda/', views.temp_qanda, name='qanda'), # 임시
+    path('qanda/', include('qanda.urls')),
 ]
