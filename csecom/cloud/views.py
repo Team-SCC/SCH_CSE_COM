@@ -3,15 +3,18 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.utils import timezone
 from django.conf import settings
-from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 import os
 
 from .models import Content
 
-# localhost:port/cloud/
+@login_required(login_url='common:login')
 def cloud_main(request):
+    '''클라우드 메인 화면 함수
+    url: localhost:port/cloud/
+    templates: cloud_main.html
+    '''
     content_list = Content.objects.order_by('-create_date')
-    # content_list = content_list.filter(Q(author__username__icontains = request.user)).distinct()
     page = request.GET.get('page', 1)
     paginator = Paginator(content_list, 10)
     page_obj = paginator.get_page(page)
@@ -20,8 +23,11 @@ def cloud_main(request):
     
     return render(request, 'cloud_main.html', context)
 
-# localhost:port/cloud/delete
 def content_delete(request, content_id):
+    '''콘텐츠 삭제 함수
+    url: localhost:port/cloud/delete/<int:content_id>/
+    templates: None
+    '''
     content = get_object_or_404(Content, pk=content_id)
 
     try:
@@ -35,8 +41,11 @@ def content_delete(request, content_id):
 
     return redirect('cloud:cloud_main')
 
-# localhost:port/cloud/create
 def content_create(request):
+    '''콘텐츠 생성 함수
+    url: localhost:port/cloud/create/
+    templates: create.html
+    '''
     if request.method == 'POST':
         for file in request.FILES.getlist('file'):
             form = Content()
@@ -50,8 +59,12 @@ def content_create(request):
 
     return render(request, 'create.html')
 
-# localhost:port/cloud/download
+@login_required(login_url='common:login')
 def file_download(request):
+    '''파일 다운로드 함수
+    url: localhost:port/cloud/download
+    templates: None
+    '''
     path = request.GET['path']
     file_path = os.path.join(settings.MEDIA_ROOT, path)
  

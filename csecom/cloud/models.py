@@ -1,5 +1,4 @@
 from django.db import models
-from django.conf import settings
 import os
 import sys
 
@@ -9,7 +8,11 @@ sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from common.models import User
 
 class Content(models.Model):
-    '''게시글 모델
+    '''클라우드 게시글 모델
+    author: 작성자
+    title: 제목
+    file: 파일(미디어 파일, 멀티 옵션 true)
+    create_date: 작성일
     '''
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=30)

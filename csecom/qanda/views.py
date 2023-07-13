@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import *
 
-
 def qanda_views(request):
     return render(request, 'qanda.html')
 

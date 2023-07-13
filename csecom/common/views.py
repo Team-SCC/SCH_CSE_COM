@@ -3,8 +3,7 @@ from django.shortcuts import render, redirect, reverse
 from django.views.generic import FormView
 from django.urls import reverse_lazy
 
-from .forms import UserCreationForm
-from .forms import LoginForm
+from .forms import *
 
 def signup(request):
     if request.method == "POST":
