@@ -34,8 +34,8 @@ INSTALLED_APPS = [
     'locker.apps.LockerConfig',
     'si_checker.apps.SiCheckerConfig',
     'cloud.apps.CloudConfig',
-    'data',
     'qanda.apps.QandaConfig',
+    'data',
 ]
 
 MIDDLEWARE = [

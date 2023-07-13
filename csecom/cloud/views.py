@@ -46,6 +46,7 @@ def content_create(request):
     url: localhost:port/cloud/create/
     templates: create.html
     '''
+
     if request.method == 'POST':
         for file in request.FILES.getlist('file'):
             form = Content()

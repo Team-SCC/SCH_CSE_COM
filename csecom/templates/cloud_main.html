@@ -80,7 +80,7 @@
         {% endif %}
     </ul>
     <!-- 페이징처리 끝 -->
-    <a href="{% url 'cloud:content_create' %}" class="btn btn-primary">파일 등록하기</a>
+    <a href="{% url 'cloud:content_create' %}" class="btn btn-primary">파일 등록</a>
     <form id="searchForm" method="get" action="{% url 'main' %}">
         <input type="hidden" id="kw" name="kw" value="{{kw|default_if_none:''}}">
         <input type="hidden" id="page" name="page" value="{{page}}">
