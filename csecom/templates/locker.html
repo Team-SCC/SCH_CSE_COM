@@ -271,14 +271,14 @@
         </tr>
     </table>
     <br>
-    <form method="post" class="post-form">
+    <form method="post" class="post-form my-3" enctype="multipart/form-data" action="create">
         {% csrf_token %}
         {% include "form_errors.html" %}
         <div class="form-group">
             <label for="number">신청할 사물함 번호</label>
-            <input type="text" id="number" readonly name="number" value="{{ form.number.value|default_if_none:'' }}">
+            <input type="text" id="number" id="number" readonly name="number" value="{{ form.number.value|default_if_none:'' }}">
         </div>
-        <button type="submit" class="btn btn-primary">사용 신청하기</button>
+        <button type="submit" class="btn btn-primary">사용 신청</button>
     </form>
 
     <script>
@@ -295,7 +295,7 @@
                 // 폼 전송 로직 추가
             });
 
-            var condition = true; // 예시로 true로 설정하였습니다. 실제로는 원하는 조건을 설정하시면 됩니다.
+            var condition = false; // 예시로 true로 설정하였습니다. 실제로는 원하는 조건을 설정하시면 됩니다.
             if (condition) {
                 // 버튼 비활성화 및 텍스트 변경
                 buttons[0].disabled = false;

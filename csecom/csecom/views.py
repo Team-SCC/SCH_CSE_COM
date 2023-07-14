@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 def main(request):
     return render(request, 'main.html')
 
-@login_required(login_url='common:login')
 def empty_page(request):
     return redirect('main')
 

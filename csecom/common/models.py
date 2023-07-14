@@ -27,7 +27,7 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_student = models.BooleanField(default=False)
-    locker_number = models.IntegerField(verbose_name='사물함', default=0)
+    locker_id = models.IntegerField(verbose_name='사물함 번호', default=0)
 
     objects = UserManager()
 
@@ -35,7 +35,7 @@ class User(AbstractBaseUser):
     REQUIRED_FIELDS = ['name']
 
     def __str__(self):
-        return f'{self.student_id} {self.name}'
+        return f'{self.student_id}'
 
     def has_perm(self, perm, obj=None):
         return True
@@ -53,4 +53,4 @@ class User(AbstractBaseUser):
 
     @property
     def locker_used(self):
-        return self.locker_used
+        return self.locker_id
