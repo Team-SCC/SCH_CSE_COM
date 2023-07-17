@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from common.models import User
-from common.forms import UserChangeLockerForm
 
 @login_required(login_url='common:login')
 def locker_main(request):
