@@ -1,242 +1,308 @@
-<!DOCTYPE html>
 {% load static %}
 {% include "header.html" %}
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Shop Homepage - Start Bootstrap Template</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body>
-        {% block content %}
-        <!-- Header-->
-        <header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">테스트 페이지 입니다</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">테스트용 페이지 입니다</p>
-                </div>
-            </div>
-        </header>
-        <!-- Section-->
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Fancy Product</h5>
-                                    <!-- Product price-->
-                                    $40.00 - $80.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Special Item</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$20.00</span>
-                                    $18.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Sale Item</h5>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$50.00</span>
-                                    $25.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Popular Item</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    $40.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Sale Item</h5>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$50.00</span>
-                                    $25.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Fancy Product</h5>
-                                    <!-- Product price-->
-                                    $120.00 - $280.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Special Item</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$20.00</span>
-                                    $18.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Popular Item</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    $40.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        {% endblock %}
-    </body>
-</html>
+{% block content %}
+<style>
+    .button {
+        width: 100px;
+        height: 50px;
+    }
+</style>
+<body>
+    <table>
+        <tr>
+            {% if 1 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+                <td><button id="button1" class="button">1번</button></td>
+            {% endif %}
+            {% if 6 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+                <td><button id="button1" class="button">6번</button></td>
+            {% endif %}
+            {% if 11 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">11번</button></td>
+            {% endif %}
+            {% if 16 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">16번</button></td>
+            {% endif %}
+            {% if 21 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">21번</button></td>
+            {% endif %}
+            {% if 26 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">26번</button></td>
+            {% endif %}
+            {% if 31 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">31번</button></td>
+            {% endif %}
+            {% if 36 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">36번</button></td>
+            {% endif %}
+            {% if 41 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">41번</button></td>
+            {% endif %}
+            {% if 46 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">46번</button></td>
+            {% endif %}
+        </tr>
+        <tr>
+            {% if 2 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+                <td><button id="button1" class="button">2번</button></td>
+            {% endif %}
+            {% if 7 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">7번</button></td>
+            {% endif %}
+            {% if 12 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">12번</button></td>
+            {% endif %}
+            {% if 17 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">17번</button></td>
+            {% endif %}
+            {% if 22 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">22번</button></td>
+            {% endif %}
+            {% if 27 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">27번</button></td>
+            {% endif %}
+            {% if 32 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">32번</button></td>
+            {% endif %}
+            {% if 37 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">37번</button></td>
+            {% endif %}
+            {% if 42 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">42번</button></td>
+            {% endif %}
+            {% if 47 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">47번</button></td>
+            {% endif %}
+        </tr>
+        <tr>
+            {% if 3 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+                <td><button id="button1" class="button">3번</button></td>
+            {% endif %}
+            {% if 8 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">8번</button></td>
+            {% endif %}
+            {% if 13 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">13번</button></td>
+            {% endif %}
+            {% if 18 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">18번</button></td>
+            {% endif %}
+            {% if 23 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">23번</button></td>
+            {% endif %}
+            {% if 28 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">28번</button></td>
+            {% endif %}
+            {% if 33 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">33번</button></td>
+            {% endif %}
+            {% if 38 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">38번</button></td>
+            {% endif %}
+            {% if 43 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">43번</button></td>
+            {% endif %}
+            {% if 48 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">48번</button></td>
+            {% endif %}
+        </tr>
+        <tr>
+            {% if 4 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+                <td><button id="button1" class="button">4번</button></td>
+            {% endif %}
+            {% if 9 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">9번</button></td>
+            {% endif %}
+            {% if 14 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">14번</button></td>
+            {% endif %}
+            {% if 19 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">19번</button></td>
+            {% endif %}
+            {% if 24 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">24번</button></td>
+            {% endif %}
+            {% if 29 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">29번</button></td>
+            {% endif %}
+            {% if 34 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">34번</button></td>
+            {% endif %}
+            {% if 39 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">39번</button></td>
+            {% endif %}
+            {% if 44 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">44번</button></td>
+            {% endif %}
+            {% if 49 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">49번</button></td>
+            {% endif %}
+        </tr>
+        <tr>
+            {% if 5 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+                <td><button id="button1" class="button">5번</button></td>
+            {% endif %}
+            {% if 10 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">10번</button></td>
+            {% endif %}
+            {% if 15 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">15번</button></td>
+            {% endif %}
+            {% if 20 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">20번</button></td>
+            {% endif %}
+            {% if 25 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">25번</button></td>
+            {% endif %}
+            {% if 30 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">30번</button></td>
+            {% endif %}
+            {% if 35 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">35번</button></td>
+            {% endif %}
+            {% if 40 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">40번</button></td>
+            {% endif %}
+            {% if 45 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">45번</button></td>
+            {% endif %}
+            {% if 50 in locker_data_list %}
+                <td><button id="button1" class="button" disabled=true>사용중</button></td>
+            {% else %}
+            <td><button id="button1" class="button">50번</button></td>
+            {% endif %}
+        </tr>
+    </table>
+    <br>
+    <form method="post" class="post-form my-3" enctype="multipart/form-data" action="create">
+        {% csrf_token %}
+        {% include "form_errors.html" %}
+        <div class="form-group">
+            <label for="number">신청할 사물함 번호</label>
+            <input type="text" id="number" id="number" readonly name="number" value="{{ form.number.value|default_if_none:'' }}">
+        </div>
+        <button type="submit" class="btn btn-primary">사용 신청</button>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            // 버튼 클릭 시 텍스트 표시
+            $('.button').click(function() {
+                var buttonText = $(this).text();
+                $('#number').val(buttonText);
+            });
+
+            // 예약 버튼 클릭 시 폼 전송
+            $('#submitButton').click(function() {
+                var numberValue = $('#number').val().replace('번', '');
+                // 폼 전송 로직 추가
+            });
+
+            var condition = false; // 예시로 true로 설정하였습니다. 실제로는 원하는 조건을 설정하시면 됩니다.
+            if (condition) {
+                // 버튼 비활성화 및 텍스트 변경
+                buttons[0].disabled = false;
+                buttons[0].textContent = "1번";
+            }
+        });
+    </script>
+</body>
+
+{% endblock %}

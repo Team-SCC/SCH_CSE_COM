@@ -1,12 +1,25 @@
+import os
+import sys
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
-from .models import Locker
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+from common.models import User
+from common.forms import UserChangeLockerForm
 
 @login_required(login_url='common:login')
 def locker_main(request):
-    return render(request, 'locker.html')
+    locker_list = []
+    
+    for i in User.objects.all():
+        locker_list.append(i.locker_id)
 
+    context = {'locker_list': locker_list}
+    
+    return render(request, 'locker.html', context)
+
+@login_required(login_url='common:login')
 def locker_create(request):
     '''사물함 신청 함수
     url: localhost:port/locker/create/
@@ -14,11 +27,19 @@ def locker_create(request):
     
     if request.method == 'POST':
         if request.POST['number'] != '':
-            form = Locker()
-            form.student_id = request.user
-            form.locker_id = int(request.POST['number'][:-1])
-            form.save()
+            
+            if request.user.locker_id == 0:
+                locker_number = int(request.POST['number'][:-1])
+                user = request.user
+                user.locker_id = locker_number
+                user.save()
+                
+            else:
+                print('이미 사물함 사용중')
+            
+        else:
+            return redirect('locker:locker')
 
         return redirect('locker:locker')
 
-    return render(request, 'locker.html')
+    return render(request, 'locker_create.html')

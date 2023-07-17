@@ -39,12 +39,17 @@ class UserCreationForm(forms.ModelForm):
             user.save()
         return user
     
+class UserChangeLockerForm(forms.ModelForm):
+    class meta:
+        model = User
+        fields = ('locker_id',)
+    
 class UserChangeForm(forms.ModelForm):
     password = ReadOnlyPasswordHashField()
 
     class Meta:
         model = User
-        fields = ('student_id', 'name', 'password', 'is_active', 'is_admin')
+        fields = ('student_id', 'name', 'password', 'is_active', 'is_admin', 'locker_id')
 
     def clean_password(self):
         return self.initial['password']
@@ -67,4 +72,3 @@ class LoginForm(forms.Form):
                 
         except User.DoesNotExist:   
             self.add_error("student_id", forms.ValidationError("이 등록되어있지 않습니다."))
-
