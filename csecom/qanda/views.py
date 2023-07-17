@@ -1,11 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import *
+from django.contrib.auth.decorators import login_required
 
-
-def qanda_views(request):
-    return render(request, 'qanda.html')
-
-def QandaView(request):
+@login_required(login_url='common:login')
+def qanda_view(request):
     if request.method =='POST':
         form = QandaForm(request.POST)
         if form.is_valid():
@@ -14,6 +12,6 @@ def QandaView(request):
         form = QandaForm()
     return render(request, 'qanda.html', {'form':form})
 
-def QandalistView(request):
-    articleList = Qanda.objects.all()
-    return render(request, 'qandalist.html', {'articleList':articleList})
+def qandalist_view(request):
+    qandaList = Qanda.objects.all()
+    return render(request, 'qandalist.html', {'qandaList':qandaList})

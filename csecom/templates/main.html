@@ -8,6 +8,7 @@
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
                 <h1 class="display-4 fw-bolder">CSE 컴퓨터공학과 홈페이지</h1>
+                <p class="lead fw-normal text-white-50 mb-0">https://github.com/Team-SCC/SCH_CSE_COM</p>
                 <p class="lead fw-normal text-white-50 mb-0">made by Lee, Shin, U</p>
             </div>
         </div>
@@ -72,7 +73,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'locker' %}">바로가기</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'locker:locker' %}">바로가기</a></div>
                         </div>
                     </div>
                 </div>
@@ -92,7 +93,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'qanda' %}">바로가기</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'qanda:qanda' %}">바로가기</a></div>
                         </div>
                     </div>
                 </div>
@@ -113,6 +114,26 @@
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'cloud:cloud_main' %}">바로가기</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">비밀번호 변경</h5>
+                                <!-- Product price-->
+                                비밀번호를 변경 할 수 있습니다
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'password-change-view' %}">바로가기</a></div>
                         </div>
                     </div>
                 </div>
