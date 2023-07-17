@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'si_checker.apps.SiCheckerConfig',
     'cloud.apps.CloudConfig',
     'qanda.apps.QandaConfig',
-    'data',
 ]
 
 MIDDLEWARE = [
@@ -61,8 +60,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'data.data_loader.student_id_loader',
-                'data.data_loader.locker_reserve_loader'
             ],
         },
     },

@@ -26,7 +26,7 @@ class User(AbstractBaseUser):
     password = models.CharField(verbose_name='비밀번호', max_length=128)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-    is_student = models.BooleanField(default=False)
+    is_student_pay = models.BooleanField(default=False)
     locker_id = models.IntegerField(verbose_name='사물함 번호', default=0)
 
     objects = UserManager()
@@ -49,7 +49,7 @@ class User(AbstractBaseUser):
     
     @property
     def is_check(self):
-        return self.is_student
+        return self.is_student_pay
 
     @property
     def locker_used(self):
