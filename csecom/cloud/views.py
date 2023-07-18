@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 import os
+from django.db.models import Q
 
 from .models import Content
 
@@ -16,6 +17,7 @@ def cloud_main(request):
     '''
     content_list = Content.objects.order_by('-create_date')
     page = request.GET.get('page', 1)
+    content_list = content_list.filter(Q(author__student_id__icontains = request.user)).distinct()
     paginator = Paginator(content_list, 10)
     page_obj = paginator.get_page(page)
     
