@@ -1,10 +1,10 @@
+from . import views
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from . import views
-from .views import MyPasswordChangeView, MyPasswordResetDoneView
+
 
 app_name = 'csecom'
 
@@ -18,8 +18,7 @@ urlpatterns = [
     path('si_checker/', include('si_checker.urls')),
     path('cloud/', include('cloud.urls')),
     path('qanda/', include('qanda.urls')),
-    path('change-password/', MyPasswordChangeView.as_view(), name='password-change-view'),
-    path('change-password/done', MyPasswordResetDoneView.as_view(), name='password-change-done-view'),
+    path('passwordChange/', include('passwordChange.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
