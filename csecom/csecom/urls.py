@@ -1,5 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
 from . import views
 from .views import MyPasswordChangeView, MyPasswordResetDoneView
 
@@ -18,3 +21,5 @@ urlpatterns = [
     path('change-password/', MyPasswordChangeView.as_view(), name='password-change-view'),
     path('change-password/done', MyPasswordResetDoneView.as_view(), name='password-change-done-view'),
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
