@@ -5,5 +5,6 @@ app_name = 'qanda'
 
 urlpatterns = [
     path('', views.qanda_view, name='qanda'),
-    path('list/', views.qandalist_view),
+    path('writing/', views.qandawriting_view, name='writing'),
+    path('list/', views.qandalist_view, name='list'),
 ]

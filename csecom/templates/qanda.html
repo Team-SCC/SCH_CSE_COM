@@ -2,18 +2,22 @@
 {% include "header.html" %}
 {% block content %}
 <body>
-    <div style="text-align: center;">
-        <h2>큐엔에이</h2><br>
-    </div>
-    <form action ="" method="post">
-        {% comment %}
-            {{ form.as_table }}
-            {{ form.as_p }}
-            {{ form.as_ul }}
-        {% endcomment %}
-        {{ form.as_p}}
-        {% csrf_token %}
-        <button type="submit" class="btn btn-primary">저장</button>
-    </form>
+    <h1>큐앤애이 게시판</h1><br>
+    <table style="border-collapse: collapse; border: 1px solid black;">
+    <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>글쓴이</th>
+        <th>작성날짜</th>
+    </tr>
+    {% for qd in qanda %}
+    <tr>
+        <td><a href="{% url 'qanda:list' %}">{{ forloop.counter }}</a></td>
+        <td>{{ qd.title }}</td>
+        <td>{{ qd.contents }}</td>
+        <td>{{ qd.cdate }}</td>
+    </tr>
+    {% endfor %}
+</table>
 </body>
 {% endblock %}

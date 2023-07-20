@@ -1,0 +1,20 @@
+{% load static %}
+{% include "header.html" %}
+{% block content %}
+<body>
+    <h1>큐엔에이 게시판</h1>
+    <h3>글 등록</h3><br>
+    <div class="row my-3"></div>
+    <form action ="" method="post">
+        {% csrf_token %}
+        이름: <input type="text"  maxlength="5" required></input>
+        제목: <input type="text" placeholder="제목을 입력해 주세요" maxlength="20" required></input><br><br>
+        내용: <textarea cols="80" placeholder="내용을 입력해 주세요" rows="16"></textarea><br>
+    <div style="padding: 10px 30px; float:right;">
+        <input class="btn btn-primary" type="submit" value="글 등록"></input>
+        <a href="{% url 'qanda:qanda' %}" type="submit" class="btn btn-primary">글 목록</a>
+    </div>
+</from>
+</body>
+{% endblock %}
+

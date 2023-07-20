@@ -1,10 +1,9 @@
 from django.db import models
 
 class Qanda(models.Model):
-    name = models.CharField(max_length=50)
     title = models.CharField(max_length=50)
+    cdate = models.DateTimeField(editable=True)
     contents = models.TextField()
-    url = models.URLField()
-    email = models.EmailField()
-    cdate = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.title

@@ -2,12 +2,21 @@
 {% include "header.html" %}
 {% block content %}
 <body>
-    <h2>큐앤애이</h2> 
-    <ul>
-        <li>제목 | 저자 | 이메일</li>
-    {% for article in articleList %}
-    <li>{{ article.title }} | {{ article.name }} | {{ article.email}}</li>
-    {% endfor %}
-    </ul>
+    <h1>큐앤애이 게시판</h1><br>
+    <hr>
+    <table class="table table-bordered">
+        <tr>
+            <td>{{ qd.title }}</td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                {{ qd.contents }}
+            </td>
+        </tr>
+    </table>
+    <div style="padding: 10px 30px; float:right;">
+    <a href="{% url 'qanda:qanda' %}" type="submit" class="btn btn-primary">글 목록</a>
+    </div>
 </body>
 {% endblock %}
