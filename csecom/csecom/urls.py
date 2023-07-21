@@ -18,7 +18,7 @@ urlpatterns = [
     path('si_checker/', include('si_checker.urls')),
     path('cloud/', include('cloud.urls')),
     path('qanda/', include('qanda.urls')),
-    path('passwordChange/', include('passwordChange.urls')),
+    path('password/', include('password.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
