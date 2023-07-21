@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'si_checker.apps.SiCheckerConfig',
     'cloud.apps.CloudConfig',
     'qanda.apps.QandaConfig',
-    'passwordChange',
+    'password',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +124,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+
+#사용자가 로그인하지 않았을 때 리디렉션될 URL (passwordChange에서 사용)
+LOGIN_URL = 'common:login'
+
+#비밀번호 강도 검사 제거
+AUTH_PASSWORD_VALIDATORS = []
