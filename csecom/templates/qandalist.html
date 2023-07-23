@@ -6,17 +6,35 @@
     <hr>
     <table class="table table-bordered">
         <tr>
-            <td>{{ qd.title }}</td>
+            <td>제목: {{ list.title }}</td>
         </tr>
-        <br>
+        <tr>
+        <td>이름: {{ list.name }}</td>
+        </tr>
         <tr>
             <td>
-                {{ qd.contents }}
+                글 내용: {{ list.contents }}
             </td>
         </tr>
     </table>
-    <div style="padding: 10px 30px; float:right;">
-    <a href="{% url 'qanda:qanda' %}" type="submit" class="btn btn-primary">글 목록</a>
+    <div>
+        <h5>{{ question.answer_set.count }}개의 답변이 있습니다.</h5>
     </div>
+    <ul>
+    {% for answer in question.answer_set.all %}
+        <li>{{ answer.content }}</li>
+    {% endfor %}
+    </ul>
+</div>
+    <br>
+    <form action="{% url 'qanda:answer' list.id %}" method="post">
+        {% csrf_token %}
+        <textarea cols="80" name="contents" rows="15"></textarea>
+        <div style="float:right;">
+            <button class="btn btn-primary" type="submit">글 저장</button>
+            <a href="{% url 'qanda:main' %}" type="submit" class="btn btn-primary">글 목록</a>
+        </div>
+    </form>
+</div>
 </body>
 {% endblock %}
