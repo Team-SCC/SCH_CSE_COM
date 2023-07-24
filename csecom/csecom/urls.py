@@ -4,8 +4,6 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-
-
 app_name = 'csecom'
 
 urlpatterns = [
@@ -19,6 +17,7 @@ urlpatterns = [
     path('cloud/', include('cloud.urls')),
     path('qanda/', include('qanda.urls')),
     path('password/', include('password.urls')),
+    path('csegallary/', include('csegallary.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
