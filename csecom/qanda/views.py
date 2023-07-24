@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import *
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 
 @login_required(login_url='common:login')
+
 def qandawriting_view(request):
     if request.method =='POST':
         form = QandaForm(request.POST)
@@ -18,4 +20,11 @@ def qanda_view(request):
 
 def qandalist_view(request, pk):
     list = get_object_or_404(Qanda, id=pk)
-    return render(request, 'qandalist.html', {'list':list})
+    context = {'list': list}
+    return render(request, 'qandalist.html', context)
+
+def qanda_answer(request, pk):
+    question = get_object_or_404(Qanda, id=pk)
+    answer = Answer(question=question, contents=request.POST.get('contents'), cdate=timezone.now())
+    answer.save()
+    return redirect('qanda:list', pk=question.id)
