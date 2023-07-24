@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'si_checker.apps.SiCheckerConfig',
     'cloud.apps.CloudConfig',
     'qanda.apps.QandaConfig',
+    'csegallary.apps.CsegallaryConfig',
     'password',
 ]
 
