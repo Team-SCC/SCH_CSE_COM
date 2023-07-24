@@ -1,5 +1,5 @@
 {% extends 'header.html' %}
-{% load pybo_filter %}
+{% load filter %}
 {% block content %}
 <div class="container my-3">
     <div class="row justify-content-between my-3">
@@ -41,7 +41,7 @@
                 {% endif %}
             </td>
             <td class="text-left">
-                <a href="{% url 'pybo:detail' question.id %}">{{ question.subject }}</a>
+                <a href="{% url 'csegallary:detail' question.id %}">{{ question.subject }}</a>
                 {% if question.answer_set.count > 0 %}
                 <span class="text-danger small ml-2">{{ question.answer_set.count }}</span>
                 {% endif %}
@@ -52,7 +52,7 @@
         {% endfor %}
         {% else %}
         <tr>
-            <td colspan="3">질문이 없습니다.</td>
+            <td colspan="3">게시글이 없습니다.</td>
         </tr>
         {% endif %}
         </tbody>
@@ -95,9 +95,9 @@
         {% endif %}
     </ul>
     <!-- 페이징처리 끝 -->
-    <a href="{% url 'pybo:question_create' %}" class="btn btn-primary">질문 등록하기</a>
+    <a href="{% url 'csegallary:question_create' %}" class="btn btn-primary">게시글 등록하기</a>
 </div>
-<form id="searchForm" method="get" action="{% url 'index' %}">
+<form id="searchForm" method="get" action="{% url 'csegallary:index' %}">
     <input type="hidden" id="kw" name="kw" value="{{ kw|default_if_none:'' }}">
     <input type="hidden" id="page" name="page" value="{{ page }}">
     <input type="hidden" id="so" name="so" value="{{ so }}">
