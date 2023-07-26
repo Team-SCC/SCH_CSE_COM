@@ -22,8 +22,7 @@
                             {% if user.locker_id != 0 %}
                             <a class="nav-link" href="{% url 'common:logout' %}">{{ user.student_id }} {{ user.name }} | {{ user.locker_id }}번 사물함 사용중 | (로그아웃)</a>
                             {% else %}
-                            <img src="/static/img/logo.png"/>
-                            <a class="nav-link" href="{% url 'common:logout' %}">{{ user.student_id }} {{ user.name }} | (로그아웃)</a>
+                            <a class="nav-link" href="{% url 'common:logout' %}"><img src="/static/img/logo.png" width="30"/> {{ user.student_id }} {{ user.name }} | (로그아웃)</a>
                             {% endif %}
                         {% endif %}
                     {% endif %}
