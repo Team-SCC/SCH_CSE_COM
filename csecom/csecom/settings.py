@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'cloud.apps.CloudConfig',
     'csegallary.apps.CsegallaryConfig',
     'password',
+    'timetable',
 ]
 
 MIDDLEWARE = [
@@ -85,17 +86,12 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 4,  #비밀번호 최소 길이 4
+        },
     },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    
 ]
 
 
@@ -127,6 +123,3 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
 #사용자가 로그인하지 않았을 때 리디렉션될 URL (passwordChange에서 사용)
 LOGIN_URL = 'common:login'
-
-#비밀번호 강도 검사 제거
-AUTH_PASSWORD_VALIDATORS = []
