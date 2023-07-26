@@ -18,6 +18,7 @@ urlpatterns = [
     path('qanda/', include('qanda.urls')),
     path('password/', include('password.urls')),
     path('csegallary/', include('csegallary.urls')),
+    path('timetable/', include('timetable.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
