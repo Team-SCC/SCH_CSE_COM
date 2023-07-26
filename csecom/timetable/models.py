@@ -1,3 +1,9 @@
 from django.db import models
 
-# Create your models here.
+class TimetableTest(models.Model):
+    time = models.TextField()
+    MON = models.TextField()
+    TUE = models.TextField()
+    WED = models.TextField()
+    THU = models.TextField()
+    FRI = models.TextField()

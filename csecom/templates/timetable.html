@@ -2,5 +2,42 @@
 {% include "header.html" %} 
 
 {% block content %}
-    <p>시간표</p>
+<style>
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+    td {
+        width: 100px;
+        height: 25px;
+    }
+</style>
+
+<table>
+    <tr>
+        <th>시간</th>
+        <th>월요일</th>
+        <th>화요일</th>
+        <th>수요일</th>
+        <th>목요일</th>
+        <th>금요일</th>
+    </tr>
+    {% for col in timetable_data_array %}
+    <tr>
+        {% for cell in col %}
+            {% for key, value in cell.items %}
+                {% if key != "a" %}
+                    {% if value > 1 %}
+                        <td rowspan="{{ value }}" style="background-color: {{ choose_random_color }};">{{ key }}</td>
+                    {% else %}
+                        <td>{{ key }}</td>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+
+</table>
 {% endblock %}
