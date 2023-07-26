@@ -275,7 +275,7 @@
         {% csrf_token %}
         {% include "form_errors.html" %}
         <div class="form-group">
-            <label for="number">신청할 사물함 번호</label>
+            <label for="number">버튼을 눌러서 신청할 사물함을 골라주세요.<br>신청할 사물함 번호</label>
             <input type="text" id="number" id="number" readonly name="number" value="{{ form.number.value|default_if_none:'' }}">
         </div>
         <button type="submit" class="btn btn-primary">사용 신청</button>

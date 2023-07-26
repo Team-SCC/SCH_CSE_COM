@@ -180,6 +180,7 @@ def comment_delete_answer(request, comment_id):
 
 logger = logging.getLogger('csegallary')
 
+@login_required(login_url='common:login')
 def index(request):
     logger.info("INFO 레벨로 출력")
     page = request.GET.get('page', '1')  # 페이지
