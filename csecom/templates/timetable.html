@@ -2,5 +2,88 @@
 {% include "header.html" %} 
 
 {% block content %}
-    <p>시간표</p>
+<style>
+    th, td {
+        border: 1px solid black;
+        padding: 3px;
+        text-align: center;
+    }
+    td {
+        width: 130px;
+        height: 5px;
+    }   
+    .button {
+        width: 200px;
+        height: 50px;
+        border: 1px solid #000000;
+        border-radius: 4px;
+        margin-top: 5px;
+        margin-right: 10px;
+        margin-bottom: 5px
+    }
+    .button-container {
+        display: flex; /* flexbox를 사용하여 요소들을 가로로 배열합니다 */
+    }
+</style>
+<body>
+    <div class="button-container">
+    <form action="{% url 'timetable:timetable_view1' %}">
+        <button class="button" type="submit">1학년</button>
+    </form>
+    <form action="{% url 'timetable:timetable_view2' %}">
+        <button class="button" type="submit">2학년</button>
+    </form>
+    <form action="{% url 'timetable:timetable_view3' %}">
+        <button class="button" type="submit">3학년</button>
+    </form>
+    <form action="{% url 'timetable:timetable_view4' %}">
+        <button class="button" type="submit">4학년</button>
+    </form>
+    </div>
+    <div class="button-container">
+    <form action="{% url 'timetable:timetable_view_m610' %}">
+    <button class="button" type="submit">M610</button>
+    </form>
+    <form action="{% url 'timetable:timetable_view_m615' %}">
+        <button class="button" type="submit">M615</button>
+    </form>
+    <form action="{% url 'timetable:timetable_view_m618' %}">
+        <button class="button" type="submit">M618</button>
+    </form>
+    <form action="{% url 'timetable:timetable_view_m619' %}">
+        <button class="button" type="submit">M619</button>
+    </form>
+    <form action="{% url 'timetable:timetable_view_m620' %}">
+        <button class="button" type="submit">M620</button>
+    </form>
+    </div>
+
+
+<table>
+    <tr>
+        <th>시간</th>
+        <th>월요일</th>
+        <th>화요일</th>
+        <th>수요일</th>
+        <th>목요일</th>
+        <th>금요일</th>
+    </tr>
+    {% for col in timetable_data_array %}
+    <tr>
+        {% for cell in col %}
+            {% for key, value in cell.items %}
+                {% if key != "a" %}
+                    {% if value > 1 %}
+                        <td rowspan="{{ value }}" style="background-color: {{ choose_random_color }};">{{ key }}</td>
+                    {% else %}
+                        <td>{{ key }}</td>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
 {% endblock %}
