@@ -43,7 +43,7 @@ def convert_to_dict(arr):
     for row in arr:
         new_row = []
         for item in row:
-            if isinstance(item, int):
+            if isinstance(item, int) and int(str(item)) != 0:
                 first_digit = int(str(item)[0])
                 remaining_digits = int(str(item)[1:])
                 subject_code = get_subject_name(remaining_digits, subject_dict)
