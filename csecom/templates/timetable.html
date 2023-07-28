@@ -76,7 +76,11 @@
                     {% if value > 1 %}
                         <td rowspan="{{ value }}" style="background-color: {{ choose_random_color }};">{{ key }}</td>
                     {% else %}
-                        <td>{{ key }}</td>
+                        {% if key == 0 %}
+                            <td>{{ "" }}</td>
+                        {% else %}
+                            <td>{{ key }}</td>
+                        {% endif %}
                     {% endif %}
                 {% endif %}
             {% endfor %}
