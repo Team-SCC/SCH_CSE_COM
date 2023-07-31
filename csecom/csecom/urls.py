@@ -20,5 +20,5 @@ urlpatterns = [
     path('csegallary/', include('csegallary.urls')),
     path('timetable/', include('timetable.urls')),
 ]
-
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
