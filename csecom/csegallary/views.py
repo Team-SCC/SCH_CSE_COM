@@ -31,11 +31,15 @@ def vote_answer(request, answer_id):
 @login_required(login_url='common:login')
 def question_create(request):
     if request.method == 'POST':
-        form = QuestionForm(request.POST)
+        form = QuestionForm(request.POST, request.FILES)
         if form.is_valid():
             question = form.save(commit=False)
             question.author = request.user  # 추가한 속성 author 적용
             question.create_date = timezone.now()
+            try:
+                question.image = request.FILES['image']
+            except KeyError:
+                question.image = None
             question.save()
             return redirect('csegallary:index')
     else:
