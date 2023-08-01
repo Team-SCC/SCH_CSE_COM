@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'csegallary.apps.CsegallaryConfig',
     'password',
     'timetable',
+    'info.apps.InfoConfig',
 ]
 
 MIDDLEWARE = [

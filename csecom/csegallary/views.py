@@ -75,7 +75,9 @@ def question_delete(request, question_id):
     if request.user != question.author:
         messages.error(request, '삭제권한이 없습니다')
         return redirect('csegallary:detail', question_id=question.id)
-    question.delete()
+    if question.subject:
+        question.image.delete()
+        question.delete()
     return redirect('csegallary:index')
 
 
@@ -204,8 +206,8 @@ def index(request):
         question_list = question_list.filter(
             Q(subject__icontains=kw) |  # 제목검색
             Q(content__icontains=kw) |  # 내용검색
-            Q(author__username__icontains=kw) |  # 질문 글쓴이검색
-            Q(answer__author__username__icontains=kw)  # 답변 글쓴이검색
+            Q(author__name__icontains=kw) |  # 질문 글쓴이검색
+            Q(answer__author__name__icontains=kw)  # 답변 글쓴이검색
         ).distinct()
 
     # 페이징처리
