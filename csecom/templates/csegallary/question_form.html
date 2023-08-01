@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <h5 class="my-3 border-bottom pb-2">게시글 작성</h5>
-    <form method="post" class="post-form my-3">
+    <form method="post" class="post-form my-3" enctype="multipart/form-data">
         {% csrf_token %}
         <!-- 오류표시 Start -->
         {% if form.errors %}
@@ -27,7 +27,12 @@
             <textarea class="form-control" name="content"
                       id="content" rows="10">{{ form.content.value|default_if_none:'' }}</textarea>
         </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">사진</label>
+            <input type="file" class="form-control" name="image" id="image">
+        </div>
         <button type="submit" class="btn btn-primary">저장하기</button>
+        <a href="{% url 'csegallary:index' %}" type="submit" class="btn btn-primary float-right">전체글</a>
     </form>
 </div>
 {% endblock %}

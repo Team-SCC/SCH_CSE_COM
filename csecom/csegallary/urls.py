@@ -1,6 +1,7 @@
 from django.urls import path
-
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name = 'csegallary'
 
@@ -31,3 +32,5 @@ urlpatterns = [
     path('vote/question/<int:question_id>/', views.vote_question, name='vote_question'),
     path('vote/answer/<int:answer_id>/', views.vote_answer, name='vote_answer'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
