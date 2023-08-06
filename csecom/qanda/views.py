@@ -9,7 +9,7 @@ def qandawriting_view(request):
     if request.method =='POST':
         form = QandaForm(request.POST)
         if form.is_valid():
-            form.save()
+           form.save()
     else:
         form = QandaForm()
     return render(request, 'qandawriting.html', {'form':form})
