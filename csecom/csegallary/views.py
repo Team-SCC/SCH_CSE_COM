@@ -47,7 +47,6 @@ def question_create(request):
     context = {'form': form}
     return render(request, 'csegallary/question_form.html', context)
 
-
 @login_required(login_url='common:login')
 def question_modify(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
