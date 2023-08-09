@@ -19,18 +19,21 @@ class Question(models.Model):
     image = models.ImageField(upload_to='image/', blank=True, null=True)
     #image_thumbnail = ImageSpecField(source='image', processors=[ResizeToFill(500, 300)], format='JPEG', options={'quality': 100})
 
-    def img_sav(self):
+    def img_save(self):
         if self.image:
-            img = Image.open(self.image.path)  #PIL=> Image
-            max_width = 400  # 저장 시 최대 가로
-            max_height = 300  # 저장 시 최대 세로
-            if img.width > max_width:
+            img = Image.open(self.image.path)
+            max_width = 500
+            max_height = 300
+            bow_width = 700
+            bow_height = 500
+            if img.width > bow_width and img.height > bow_height:
+                img.thumbnail((bow_width, bow_height), Image.ANTIALIAS)
+            elif img.width < max_width:
+                img.thumbnail((max.width, img.height), Image.ANTIALIAS)
+            elif img.height < max_height:
                 img.thumbnail((img.width, max_height), Image.ANTIALIAS)
-            elif img.height > max_height:
-                img.thumbnail((max_width, img.height), Image.ANTIALIAS)
-            elif img.width > max_width and img.height > max_height:
-                img.thumbnail((img.width, img.height), Image.ANTIALIAS)   
-            img.save(self.image.path, quality=100)
+            img.save(self.image.path, format='JPEG', quality=100)
+
 
     def __str__(self):
         return self.subject
