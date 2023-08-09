@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'password',
     'timetable',
     'info.apps.InfoConfig',
+    'imagekit',
 ]
 
 MIDDLEWARE = [
