@@ -12,8 +12,46 @@
     color: #fff;
     border: none;
   }
+  .calendar {
+  width: 70%;
+  margin: auto;
+  font-size: 15px;
+}
+
+.calendar tr, .calendar td {
+  border: solid lightblue;
+}
+
+.calendar th {
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.calendar td {
+  width: 150px;
+  height: 80px;
+  padding: 20px 0px 0px 5px;
+}
+
+.month {
+  font-size: 25px;
+}
+
+.date {
+  font-size: 16px;
+}
+
+ul {
+  height: 100%;
+  padding: 0px 5px 0px 20px;
+}
+.button-container {
+        display: flex; 
+    }
 </style>
 <body>
+  <div class="button-container">
   <form action="{% url 'info:m1' %}" method="post">
     {% csrf_token %}
     <button type="submit" class="butt">
@@ -27,104 +65,108 @@
       학생활동<span class="badge bg-primary"></span>
     </button>
   </form>
-    {% if content1 %}
-    <div class="card-group">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">학과 홈페이지</h5>
-            <p class="card-text">컴퓨터공학과 학과 홈페이지입니다</p>
-            <p class="card-text"><small class="text-muted"><a href="https://home.sch.ac.kr/xe/">https://home.sch.ac.kr/xe/</a></small></p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">과사 번호</h5>
-            <p class="card-text">[31538] 충남 아산시 순천향로 22 멀티미디어관 M609</p>
-            <p class="card-text"><small class="text-muted">TEL : 041-530-1273</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">교육 과정</h5>
-            <p class="card-text">컴퓨터공학과 전공 교육과정입니다</p>
-            <p class="card-text"><small class="text-muted">
-              <div id="liveAlertPlaceholder"></div>
-              <button type="button" id="liveAlertBtn">
-              <img src="/static/img/logo.png" style="max-width: 30px; max-height: 30px;" alt="Logo">
-            </button>
-          </small></p>
-
-          <div class="accordion" id="accordionPanelsStayOpenExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                #1
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
-                <div class="accordion-body">
-                  <strong>1학년</strong><br>
-                  <pre>
-프로그래밍기초, 프로그래밍기초lab, C프로그래밍, C프로그래밍lab,
-전산수학, 컴퓨팅이해, 컴퓨터영어1, 컴퓨터영어2, 프로그래밍 응용 
-                </pre>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                #2
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                <div class="accordion-body">
-                  <strong>2학년</strong><br>
-                  <pre>
-선형대수, 디지털로직, 데이터구조1, 데이터구조2, 컴퓨터구조, 확률및통계, 디지털로직lab, 데이터구조lab, 
-java프로그래밍, java프로그래밍lab, 알고리즘기초, 객체지향프로그래밍, 객체지향프로그래밍lab, 웹프로그래밍  
-                  </pre>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                #3
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                <div class="accordion-body">
-                  <strong>3학년</strong><br>
-                  <pre>
-프로그래밍언어론, 운영체계, 파일처리, 윈도우즈 프로그래밍, 컴퓨터그래픽스, java응용프로그래밍, 논리 및 논술, 리눅스 프로그래밍, 
-컴퓨터비전, 컴퓨터네트워크, 데이터베이스, 실무데이터베이스시스템, 컴파일러, 인공지능, 마이크로프로세서, 소프트웨어공학, 
-                  </pre>
-                </div>
-              </div>
+</div>
+      {% if cont1 %}
+      <div class="card-group">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">학과 홈페이지</h5>
+              <p class="card-text">컴퓨터공학과 학과 홈페이지입니다</p>
+              <p class="card-text"><small class="text-muted"><a href="https://home.sch.ac.kr/xe/">https://home.sch.ac.kr/xe/</a></small></p>
             </div>
           </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
-              #4
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">과사 번호</h5>
+              <p class="card-text">[31538] 충남 아산시 순천향로 22 멀티미디어관 M609</p>
+              <p class="card-text"><small class="text-muted">TEL : 041-530-1273</small></p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">교육 과정</h5>
+              <p class="card-text">컴퓨터공학과 전공 교육과정입니다</p>
+              <p class="card-text"><small class="text-muted">
+                <div id="liveAlertPlaceholder"></div>
+                <button type="button" id="liveAlertBtn">
+                <img src="/static/img/logo.png" style="max-width: 30px; max-height: 30px;" alt="Logo">
               </button>
-            </h2>
-            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
-              <div class="accordion-body">
-                <strong>4학년</strong><br>
-                <pre>
-스마트폰응용 프로그래밍, 임베디드 소프트웨어, 컴퓨터보안, 빅데이터이해,
-알고리즘응용, 딥러닝이해, 컴퓨터게임, 고급웹응용프로그래밍, 빅데이터응용, 강화학습
-                </pre> 
+            </small></p>
+
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                  #1
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                  <div class="accordion-body">
+                    <strong>1학년</strong><br>
+                    <pre>
+  프로그래밍기초, 프로그래밍기초lab, C프로그래밍, C프로그래밍lab,
+  전산수학, 컴퓨팅이해, 컴퓨터영어1, 컴퓨터영어2, 프로그래밍 응용 
+                  </pre>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                  #2
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                  <div class="accordion-body">
+                    <strong>2학년</strong><br>
+                    <pre>
+  선형대수, 디지털로직, 데이터구조1, 데이터구조2, 컴퓨터구조, 확률및통계, 디지털로직lab, 데이터구조lab, 
+  java프로그래밍, java프로그래밍lab, 알고리즘기초, 객체지향프로그래밍, 객체지향프로그래밍lab, 웹프로그래밍  
+                    </pre>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                  #3
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                  <div class="accordion-body">
+                    <strong>3학년</strong><br>
+                    <pre>
+  프로그래밍언어론, 운영체계, 파일처리, 윈도우즈 프로그래밍, 컴퓨터그래픽스, java응용프로그래밍, 논리 및 논술, 리눅스 프로그래밍, 
+  컴퓨터비전, 컴퓨터네트워크, 데이터베이스, 실무데이터베이스시스템, 컴파일러, 인공지능, 마이크로프로세서, 소프트웨어공학, 
+                    </pre>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                #4
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+                <div class="accordion-body">
+                  <strong>4학년</strong><br>
+                  <pre>
+  스마트폰응용 프로그래밍, 임베디드 소프트웨어, 컴퓨터보안, 빅데이터이해,
+  알고리즘응용, 딥러닝이해, 컴퓨터게임, 고급웹응용프로그래밍, 빅데이터응용, 강화학습
+                  </pre> 
+                </div>
+              </div>
+            </div>
+  
+            </div>
           </div>
         </div>
-      </div>
+      
+    </div>
     {% endif %}
-    {% if content2 %}
+  
+    {% if cont2 %}
     <div class="card-group">
       <div class="card">
           <div class="card-body">
@@ -149,12 +191,7 @@ java프로그래밍, java프로그래밍lab, 알고리즘기초, 객체지향프
         </div>
       </div>
       {% endif %}
-
-
-
-
-
-      
+      {{ calendar }}
 </body>
 {% endblock %}
 

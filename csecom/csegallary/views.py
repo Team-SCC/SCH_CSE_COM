@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.core.paginator import Paginator
 from django.db.models import Q, Count
 import logging
+from PIL import Image
 
 from .forms import AnswerForm, CommentForm, QuestionForm
 from .models import Question, Answer, Comment
@@ -46,6 +47,8 @@ def question_create(request):
         form = QuestionForm()
     context = {'form': form}
     return render(request, 'csegallary/question_form.html', context)
+
+
 
 @login_required(login_url='common:login')
 def question_modify(request, question_id):
