@@ -8,6 +8,5 @@ urlpatterns = [
     path('m1/', views.m1, name='m1'),
     path('m2/', views.m2, name='m2'),
     path('<int:schedule_id>/', views.schedule_view, name='schedule'),
-    
 ]
 

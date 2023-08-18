@@ -3,9 +3,10 @@
 {% block content %}
 
 
-<form action="{% url 'info:schedule' schedule_id %}" method="post">
+<form method="post" class="post-form my-3">
     {% csrf_token %}
+    <label for="content">스케줄</label>
     <textarea name="content" id="content" rows="15"></textarea>
-    <input type="submit" value="답변등록">
+    <button type="submit" class="btn btn-primary">저장하기</button>
     </form>
 {% endblock %}

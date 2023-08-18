@@ -17,10 +17,11 @@ class Calendar(HTMLCalendar):
         d = ''
         for cont in contents_day:
             d += f'<li> {cont.content} </li>'
+
         if day != 0:
-            return f"<td><a href={schedule.get_url}</a>{day}<ul> {d} </ul></td>"
-        return '<td></td>'
-    
+            return f"<td> {schedule.get_url} <ul> {d} </ul></td>"
+        return f'<td></td>'
+
     #filter():데이터베이스 테이블의 열(col)과 연결된 모델을 호출
     #formatday함수는 달력에서 하루를 형식화하는 함수 모델 schedule의 events를 받아 출력
 
@@ -30,8 +31,6 @@ class Calendar(HTMLCalendar):
             wk += self.formatday(d, contents)
         return f'<tr> {wk} </tr>'
     #formatweek함수는 달력에서 주를 형식화하는 함수
-
-
 
     def formatmonth(self, withyear=True):
         contents = schedule.objects.filter(start_time__year=self.year, start_time__month=self.month)

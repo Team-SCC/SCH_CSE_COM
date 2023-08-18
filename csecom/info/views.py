@@ -54,16 +54,16 @@ class CalendarView(generic.ListView):
         return context
     
 def schedule_view(request, schedule_id):
-    content = get_object_or_404(schedule, pk=schedule_id)
+    sch = get_object_or_404(schedule, pk=schedule_id)
     if request.method == "POST":
         form = ScheduleForm(request.POST)
         if form.is_valid():
             res = form.save(commit=False)
-            res.content = content
             res.start_time = timezone.now()
+            res.content = sch
             res.save()
             return redirect('info:main')
     else:
         form = ScheduleForm()
     context = {'form': form}
-    return render(request, 'info:main', context)
+    return render(request, 'info_form.html', context)

@@ -7,6 +7,7 @@ from django.db.models import Q, Count
 import logging
 from PIL import Image
 
+
 from .forms import AnswerForm, CommentForm, QuestionForm
 from .models import Question, Answer, Comment
 
@@ -19,7 +20,6 @@ def vote_question(request, question_id):
         question.voter.add(request.user)
     return redirect('csegallary:detail', question_id=question.id)
 
-
 @login_required(login_url='common:login')
 def vote_answer(request, answer_id):
     answer = get_object_or_404(Answer, pk=answer_id)
@@ -30,7 +30,8 @@ def vote_answer(request, answer_id):
     return redirect('csegallary:detail', question_id=answer.question.id)
 
 @login_required(login_url='common:login')
-def question_create(request):
+def question_create(request): 
+    img = []
     if request.method == 'POST':
         form = QuestionForm(request.POST, request.FILES)
         if form.is_valid():
@@ -39,15 +40,19 @@ def question_create(request):
             question.create_date = timezone.now()
             try:
                 question.image = request.FILES['image']
+                res = Image.open(question.image)
+                img.append(res.width)
             except KeyError:
                 question.image = None
             question.save()
             return redirect('csegallary:index')
     else:
         form = QuestionForm()
-    context = {'form': form}
+    context = {
+        'form': form,
+        'img': img,
+        }
     return render(request, 'csegallary/question_form.html', context)
-
 
 
 @login_required(login_url='common:login')
