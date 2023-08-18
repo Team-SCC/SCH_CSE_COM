@@ -23,7 +23,12 @@
                 <div class="card-body">
                     <div class="card-text">
                         {% if question.image %}
-                        <img src="{{ question.image.url }}">
+                            {% for i in img %}
+                                {% if i.width > 10 %}
+                                    <img src="{{ question.image.url }}" style="max-width:200px; max-height:200px;">
+                                {% endif %}
+                            {% endfor %}
+                         <img src="{{ question.image.url }}">    
                         {% endif %}
                         {{ question.content|mark }}</div>
                     <div class="d-flex justify-content-end">
