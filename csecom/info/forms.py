@@ -1,6 +1,5 @@
 from .models import *
 from calendar import HTMLCalendar
-from datetime import datetime
 from django import forms
 from django.urls import reverse
 
@@ -19,8 +18,10 @@ class Calendar(HTMLCalendar):
             d += f'<li> {cont.content} </li>'
 
         if day != 0:
-            return f"<td> {schedule.get_url} <ul> {d} </ul></td>"
+            return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>"
+        
         return f'<td></td>'
+    #{day} </a> <ul> {d} </ul></td>'
 
     #filter():데이터베이스 테이블의 열(col)과 연결된 모델을 호출
     #formatday함수는 달력에서 하루를 형식화하는 함수 모델 schedule의 events를 받아 출력

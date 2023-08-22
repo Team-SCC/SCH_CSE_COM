@@ -1,11 +1,9 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 from .models import *
 from .forms import Calendar, ScheduleForm
 from django.views import generic
-from datetime import datetime, timedelta
+from datetime import datetime
 from django.utils.safestring import mark_safe
-from django.urls import reverse
-from dateutil.relativedelta import relativedelta
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
@@ -41,6 +39,7 @@ def get_date(req):
         return datetime.date(year, month, day=1)
     return datetime.today()
 
+
 class CalendarView(generic.ListView):
     model = schedule
     template_name = 'info_main.html'
@@ -52,7 +51,7 @@ class CalendarView(generic.ListView):
         html_cal = cal.formatmonth(withyear=True)
         context['calendar'] = mark_safe(html_cal)
         return context
-    
+
 def schedule_view(request, schedule_id):
     sch = get_object_or_404(schedule, pk=schedule_id)
     if request.method == "POST":
