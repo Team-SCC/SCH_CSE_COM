@@ -15,7 +15,6 @@ urlpatterns = [
     path('common/', include('common.urls')),
     path('si_checker/', include('si_checker.urls')),
     path('cloud/', include('cloud.urls')),
-    path('qanda/', include('qanda.urls')),
     path('password/', include('password.urls')),
     path('csegallary/', include('csegallary.urls')),
     path('timetable/', include('timetable.urls')),

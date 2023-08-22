@@ -5,7 +5,6 @@ from django.utils import timezone
 from django.core.paginator import Paginator
 from django.db.models import Q, Count
 import logging
-from PIL import Image
 
 
 from .forms import AnswerForm, CommentForm, QuestionForm
@@ -31,7 +30,6 @@ def vote_answer(request, answer_id):
 
 @login_required(login_url='common:login')
 def question_create(request): 
-    img = []
     if request.method == 'POST':
         form = QuestionForm(request.POST, request.FILES)
         if form.is_valid():
@@ -40,18 +38,13 @@ def question_create(request):
             question.create_date = timezone.now()
             try:
                 question.image = request.FILES['image']
-                res = Image.open(question.image)
-                img.append(res.width)
             except KeyError:
                 question.image = None
             question.save()
             return redirect('csegallary:index')
     else:
         form = QuestionForm()
-    context = {
-        'form': form,
-        'img': img,
-        }
+    context = {'form': form}
     return render(request, 'csegallary/question_form.html', context)
 
 
@@ -84,7 +77,7 @@ def question_delete(request, question_id):
         return redirect('csegallary:detail', question_id=question.id)
     if question.subject:
         question.image.delete()
-        question.delete()
+    question.delete()
     return redirect('csegallary:index')
 
 
