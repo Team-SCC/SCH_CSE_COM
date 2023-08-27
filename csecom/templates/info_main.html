@@ -1,12 +1,11 @@
 {% load static %}
 {% include "header.html" %}
 {% block content %}
-
 <style>
   .butt {
     display: inline-block;
     padding: 20px 35px;
-    font-size: 18px;
+    font-size: 20px;
     margin: 10px; 
     background-color: rgb(66, 171, 212);
     color: #fff;
@@ -17,34 +16,38 @@
   margin: auto;
   font-size: 15px;
 }
-
-.calendar tr, .calendar td {
+.calendar tr {
   border: solid lightblue;
 }
-
 .calendar th {
   padding: 10px;
   text-align: center;
   font-size: 18px;
 }
-
 .calendar td {
-  width: 150px;
-  height: 80px;
-  padding: 20px 0px 0px 5px;
+  border: solid lightblue;
+  width: 130px;
+  height: 70px;
+  padding: 18px 0px 0px 5px;
 }
-
-.month {
-  font-size: 25px;
-}
-
 ul {
   height: 100%;
   padding: 0px 5px 0px 20px;
 }
 .button-container {
         display: flex; 
-    }
+}
+.prev {
+  position: absolute;
+  top: 300px;
+  left: 50px;
+}
+.next {
+  position: absolute;
+  top: 300px;
+  right: 50px;
+}
+
 </style>
 <body>
   <div class="button-container">
@@ -54,15 +57,15 @@ ul {
       학과정보<span class="badge bg-primary"></span>
     </button>
   </form>
-
   <form action="{% url 'info:m2' %}" method="post">
     {% csrf_token %}
     <button type="submit" class="butt">
       학생활동<span class="badge bg-primary"></span>
     </button>
   </form>
-</div>
-      {% if cont1 %}
+  </div>
+
+  {% if cont1 %}
       <div class="card-group">
           <div class="card">
             <div class="card-body">
@@ -162,10 +165,9 @@ ul {
             </div>
           </div>
         </div>
-      
     </div>
     {% endif %}
-  
+    
     {% if cont2 %}
     <div class="card-group">
       <div class="card">
@@ -190,8 +192,19 @@ ul {
           </div>
         </div>
       </div>
-      {% endif %}
-      {{ calendar }}
+    {% endif %}
+    
+    {% if cont1 != not cont2 and cont2 != not cont1 %}  
+    <div class="prev">
+    <a href="{% url 'info:main' %}?{{ prev_month }}"><image src="../static/img/271228.png" style="max-width:80px;max-height:150px;transform: rotate(180deg)"></a>
+    </div>
+    <div class="next">
+    <a href="{% url 'info:main' %}?{{ next_month }}"><image src="../static/img/271228.png" style="max-width:80px;max-height:150px"></image></a>
+    </div>
+    {% endif %}
+
+    {{ calendar }}
+
 </body>
 {% endblock %}
 

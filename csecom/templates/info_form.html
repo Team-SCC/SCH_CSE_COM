@@ -1,12 +1,11 @@
 {% load static %}
 {% include "header.html" %}
 {% block content %}
-
-
 <form method="post" class="post-form my-3">
     {% csrf_token %}
-    <label for="content">스케줄</label>
+    <p>스케줄 작성</p>
     <textarea name="content" id="content" rows="15"></textarea>
+    <input type="date" name="start_tine" id="start_time"></input>
     <button type="submit" class="btn btn-primary">저장하기</button>
     </form>
 {% endblock %}
