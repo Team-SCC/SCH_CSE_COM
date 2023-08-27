@@ -15,15 +15,13 @@ class Calendar(HTMLCalendar):
         contents_day = contents.filter(start_time__day=day)
         d = ''
         for cont in contents_day:
-            d += f'<li> {cont.content} </li>'
+            d += f'<li>{cont.get_url}</li>'
 
         if day != 0:
-            return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>"
+            return f"<td>{day}<ul> {d} </ul></td>"
         
         return f'<td></td>'
-    #{day} </a> <ul> {d} </ul></td>'
-
-    #filter():데이터베이스 테이블의 열(col)과 연결된 모델을 호출
+    
     #formatday함수는 달력에서 하루를 형식화하는 함수 모델 schedule의 events를 받아 출력
 
     def formatweek(self, week, contents):
@@ -37,13 +35,13 @@ class Calendar(HTMLCalendar):
         contents = schedule.objects.filter(start_time__year=self.year, start_time__month=self.month)
         cal = f'<table border="0" cellpadding="0" cellspacing="0" class="calendar">\n'
         cal += f'{self.formatmonthname(self.year, self.month, withyear=withyear)}\n'
-        #formatmonth함수: 달력의 이름
         cal += f'{self.formatweekheader()}\n'
         for week in self.monthdays2calendar(self.year, self.month):
-            #monthdays2calendar: 그 해에 맞춰진 날짜
             cal += f'{self.formatweek(week, contents)}\n'
         return cal
-    
+    #formatmonth함수: 달력의 이름
+    #monthdays2calendar: 그 해에 맞춰진 날짜
+
     #def formatweekheader(self):
     #    days = ['일', '월', '화', '수', '목', '금', '토']
     #    weekheader = ''.join(f'<th class="{self.cssclasses[weekday]}">{day}</th>' for weekday, day in enumerate(days))
@@ -52,8 +50,9 @@ class Calendar(HTMLCalendar):
 class ScheduleForm(forms.ModelForm):
     class Meta:
         model = schedule
-        fields = ['content']
+        fields = ['content', 'start_time']
         labels = {
             'content': '일정',
+            'start_time': '날짜',
         }
 

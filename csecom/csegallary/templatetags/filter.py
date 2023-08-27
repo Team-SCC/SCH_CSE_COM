@@ -2,6 +2,8 @@ import markdown
 from django import template
 from django.utils.safestring import mark_safe
 from PIL import Image
+from django.urls import reverse
+import datetime
 
 register = template.Library()
 
