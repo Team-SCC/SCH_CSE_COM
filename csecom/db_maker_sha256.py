@@ -7,7 +7,7 @@ django.setup()
 
 from django.contrib.auth.hashers import make_password
 
-data = pd.read_excel('C:/Users/dldls/바탕 화면/before_table.xlsx')
+data = pd.read_excel('C:/Users/dldls/OneDrive/바탕 화면/학과홈페이지 개발/common_user 디비초안.xlsx')
 sha_list = []
 
 for i in data['password']:
@@ -17,4 +17,4 @@ for i in data['password']:
 
 data['password'] = sha_list
 
-data.to_csv('C:/Users/dldls/바탕 화면/common_user.csv', index=False)
+data.to_csv('C:/Users/dldls/OneDrive/바탕 화면/학과홈페이지 개발/common_user.csv', index=False)
