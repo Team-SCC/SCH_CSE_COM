@@ -42,3 +42,25 @@ def locker_create(request):
         return redirect('locker:locker')
 
     return render(request, 'locker_create.html')
+
+@login_required(login_url='common:login')
+def locker_return(request):
+    '''사물함 반납 함수
+    url: localhost:port/locker/return/
+    '''
+
+    if request.method == 'POST':
+
+        # 사용 중인 사물함이 있을 경우 request한 user의 locker_id 속성을 0으로 지정
+        if request.user.locker_id != 0: 
+            user = request.user
+            user.locker_id = 0
+            user.save()
+
+        # 없을 경우 터미널에 출력, 만약 부가 기능 추가를 원하면 else문 밑에 구현하면 됨            
+        else:
+            print('사용 중인 사물함이 없습니다')
+
+        return redirect('locker:locker')
+
+    return render(request, 'locker_return.html')

@@ -35,7 +35,7 @@ def get_subject_name(subject_code, subject_dict):
     else:
         return subject_code
 
-#이차원 배열의 요소를 Dictionary로 바꾼다
+#이차원 배열의 요소를 Dictionary로 바꾼다 
 #6자리 중 첫번째 자리는 value, 나머지는 key
 #key는 과목코드, value는 그 수업의 연속된 수 (Ex.75분 수업이면 value는 3)
 def convert_to_dict(arr):
