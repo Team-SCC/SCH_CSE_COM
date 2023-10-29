@@ -1,13 +1,9 @@
-{% load static %}
-{% include "header.html" %} 
-{% block content %}
-{% if user.is_authenticated %}
-  {% if is_check %}
-  <p>학번 {{user.student_id}}는 학회비가 납부되었습니다.</p>
-  {% else %}
-  <p>학번 {{user.student_id}}는 학회비가 미납입니다.</p>
-  {% endif %}
+{% if is_check %}
+  <script>
+    alert("학번 {{user.student_id}}는 학회비가 납부되었습니다.")
+  </script>
 {% else %}
-  <p>로그인이 필요합니다.</p>
+  <script>
+    alert("학번 {{user.student_id}}는 학회비가 미납부되었습니다.\n납부 안내는 학회장에게 문의하세요.")
+  </script>
 {% endif %}
-{% endblock %}
