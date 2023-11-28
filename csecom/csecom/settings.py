@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'password',
     'timetable',
     'info.apps.InfoConfig',
+    'term2023.apps.Term2023Config',
 ]
 
 MIDDLEWARE = [
